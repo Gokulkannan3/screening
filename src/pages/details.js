@@ -46,7 +46,7 @@ export default function Details() {
         setEditingEmployee(null);
       };
     const getEmployee = () => {
-        Axios.get(`http://localhost:5000/employeelist`)
+        Axios.get(`https://node-backend-7c1o.onrender.com/employeelist`)
           .then((response) => {
             setEmployee(response.data);
           })
