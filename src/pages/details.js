@@ -9,7 +9,7 @@ export default function Details() {
     const [isModalOpen, setIsModalOpen] = useState(false);
     
     const deleteEmployee = (id) => {
-        Axios.delete(`http://localhost:5000/delete/${id}`).then((response) => {
+        Axios.delete(`http://3.141.192.135:5000/${id}`).then((response) => {
           setEmployee(
             employee.filter((val) => {
               return val.id !== id;
@@ -26,7 +26,7 @@ export default function Details() {
     
 
       const handleModalSave = () => {
-        Axios.put(`http://localhost:5000/updateEmployee/${editingEmployee.id}`, editingEmployee)
+        Axios.put(`http://3.141.192.135:5000/${editingEmployee.id}`, editingEmployee)
           .then((response) => {
             console.log('Employee edited:', response.data);
             closeModal();
@@ -46,7 +46,7 @@ export default function Details() {
         setEditingEmployee(null);
       };
     const getEmployee = () => {
-        Axios.get(`http://localhost:5000/employeelist`)
+        Axios.get(`http://3.141.192.135:5000/employeelist`)
           .then((response) => {
             setEmployee(response.data);
           })
