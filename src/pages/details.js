@@ -9,7 +9,7 @@ export default function Details() {
     const [isModalOpen, setIsModalOpen] = useState(false);
     
     const deleteEmployee = (id) => {
-        Axios.delete(`https://backend-1xlt.onrender.com:5000/delete/${id}`).then((response) => {
+        Axios.delete(`https://backend-1xlt.onrender.com/delete/${id}`).then((response) => {
           setEmployee(
             employee.filter((val) => {
               return val.id !== id;
