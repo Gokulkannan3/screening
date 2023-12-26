@@ -8,13 +8,21 @@ export default function Details() {
     const [editingEmployee, setEditingEmployee] = useState(null);
     const [isModalOpen, setIsModalOpen] = useState(false);
     
-    const deleteEmployee = (id) => {
+      const deleteEmployee = (id) => {
         Axios.delete(`https://backend-1xlt.onrender.com/delete/${id}`).then((response) => {
-          setEmployee(
-            employee.filter((val) => {
-              return val.id !== id;
-            })
-          );
+          if (response.status === 200) {
+            setEmployee(
+              employee.filter((val) => {
+                return val.id !== id;
+              })
+            );
+            console.log(`Employee with ID ${id} deleted successfully.`);
+          } else {
+            console.error(`Unexpected response status: ${response.status}`);
+          }
+        })
+        .catch((error) => {
+          console.error('Error deleting employee:', error);
         });
       };
 
