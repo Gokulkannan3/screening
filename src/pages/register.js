@@ -22,7 +22,7 @@ export default function Register() {
     const [adopt, setAdopt] = useState('');
 
     const addEmployee=()=>{
-        axios.post(`http://3.136.19.245:5000/register`,{
+        axios.post(`https://backend-1xlt.onrender.com/register`,{
             firstname: firstname,
             lastname : lastname,
             dob : dob,
